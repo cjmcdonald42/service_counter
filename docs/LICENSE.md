@@ -1,4 +1,4 @@
-### This work © 2024 by Charles J McDonald is licensed under CC BY-NC-SA 4.0
+### This work © 2025 by Charles J McDonald is licensed under CC BY-NC-SA 4.0
 # Attribution-Noncommercial-ShareAlike 4.0 International
 
 Canonical URL:  https://creativecommons.org/licenses/by-nc-sa/4.0/
