@@ -1,11 +1,8 @@
-     package:   ribbit.py
+     package:   service_counter.py
       author:   Charles J McDonald «cmcdonald@woonsocketschools.com»
-        date:   2024.10.12
-     version:   0.1
-    maturity:   inDev
+        date:   2025.03.12
+        
+# service_counter
+Write an invoice for an automotive service writer.
 
-# ribbit
-A reimagining of the game Bulls and Cows. Our version uses a swampy theme with frogs and toads.
-Open Source Software Template
-
-### This work © 2024 by Charles J McDonald is licensed under CC BY-NC-SA 4.0
+### This work © 2025 by Charles J McDonald is licensed under CC BY-NC-SA 4.0
