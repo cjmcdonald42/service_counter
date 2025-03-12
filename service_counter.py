@@ -8,6 +8,25 @@
 # Default language is English
 import lang_en as lang
 
+USD_EXCHANGE_RATE = 1.00
+CAN_EXCHANGE_RATE = 1.44
+
+def print_english_language_invoice():
+    print(f"""
+    WACTC Automotive Services               INVOICE
+    400 Alysworth Ave
+    Woonsocket, RI 02895
+    
+    {customer_name}
+    {customer_year} {customer_make} {customer_model}
+    
+    Service Type: {service_type}
+    Service Cost: {service_cost:.2f} {currency} including labour""")
+
+# TODO: french translation
+def print_french_language_invoice():
+    pass
+
 # Choose language
 choosing_a_language = True
 while choosing_a_language:
@@ -32,9 +51,11 @@ while choosing_a_currency:
     currency_choice = input(lang.choose_currency)
     if currency_choice == "1":
         currency = "USD"
+        exchange_rate = USD_EXCHANGE_RATE
         choosing_a_currency = False
     elif currency_choice == "2":
         currency = "CAN"
+        exchange_rate = CAN_EXCHANGE_RATE
         choosing_a_currency = False
     else:
         print(lang.choose_currency_error)
@@ -59,32 +80,50 @@ while is_creating_invoices:
         service_choice = input(lang.choose_service)
         if service_choice == "1":
             service_type = lang.service_oil_change
-            service_cost += 79.99
-            service_tyre_type = input(lang.tyre_type).lower()
-            if service_tyre_type == "std":
-                service_cost += 30.00
-            elif service_tyre_type == "4wd" or service_tyre_type == "truck":
-                service_cost += 45.00
+            service_cost += (79.99 * exchange_rate)
+            is_choosing_a_service_tyre_type = True
+            while is_choosing_a_service_tyre_type:
+                service_tyre_type = input(lang.tyre_type).lower()
+                if service_tyre_type == "std":
+                    service_cost += (30.00 * exchange_rate)
+                    is_choosing_a_service_tyre_type = False
+                elif service_tyre_type in ("4wd", "truck"):
+                    service_cost += (45.00 * exchange_rate)
+                    is_choosing_a_service_tyre_type = False
+                else:
+                    print(lang.tyre_type_error)
             choosing_a_service = False
         elif service_choice == "2":
             service_type = lang.service_brake_pads
-            service_cost += 120.00
+            service_cost += (120.00 * exchange_rate)
             choosing_a_service = False
         elif service_choice == "3":
             service_type = lang.service_broken_glass
-            window_size = input(lang.window_size_string).lower()
-            if window_size == "s":
-                service_cost += 39.99
-            elif window_size == "l":
-                service_cost += 69.99
+            is_choosing_a_glass_size = True
+            while is_choosing_a_glass_size:
+                window_size = input(lang.window_size_string).lower()
+                if window_size == "s":
+                    service_cost += (39.99 * exchange_rate)
+                    is_choosing_a_glass_size = False
+                elif window_size == "l":
+                    service_cost += (69.99 * exchange_rate)
+                    is_choosing_a_glass_size = False
+                else:
+                    print(lang.glass_size_error)
             choosing_a_service = False
         elif service_choice == "4":
             service_type = lang.service_dent_removal
-            dent_size = input(lang.dent_size_string).lower()
-            if dent_size == "s":
-                service_cost += 5.00
-            else:
-                service_cost += 15.00
+            is_choosing_a_dent_size = True
+            while is_choosing_a_dent_size:
+                dent_size = input(lang.dent_size_string).lower()
+                if dent_size == "s":
+                    service_cost += (5.00 * exchange_rate)
+                    is_choosing_a_dent_size = False
+                else:
+                    service_cost += (15.00 * exchange_rate)
+                    is_choosing_a_dent_size = False
+                else:
+                    print(lang.dent_size_error)
             choosing_a_service = False
     # End of while loop (choosing_a_service)
 
@@ -92,10 +131,11 @@ while is_creating_invoices:
     service_labour_cost = input(lang.service_labour_cost_string)
     service_cost += float(service_labour_cost)
 
-    # TODO: Calculate Tax or VAT?
-
     # Print invoice
-    print(lang.invoice_string)
+    if language_choice == "1":
+        print_english_language_invoice()
+    else:
+        print_french_language_invoice()
 
     # Another invoice?
     another_invoice = input(lang.another_invoice_string).lower()

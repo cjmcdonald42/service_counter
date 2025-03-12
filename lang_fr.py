@@ -1,4 +1,4 @@
-# English language file
+# le francais language file
 
 language_menu = """
     Please choose a language:
