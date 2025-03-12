@@ -1,11 +1,67 @@
 # English language file
 
+# Choose language
 language_menu = """
     Please choose a language:
     Choisir une langue:
 
     1. English
-    2. français
+    2. le français
     """
 choose_language = "Choose a language: (1/2) "
 choose_language_error = "Please choose a valid language."
+language_choice = "You have chosen English."
+
+# Choose a currancy USD or CAN
+currency_menu = """
+    Please choose a currency:
+    1. USD
+    2. CAN
+    """
+choose_currency = "Choose a currency: (1/2) "
+choose_currency_error = "Please choose a valid currency."
+
+# Gather new customer information
+vehicle_information = """
+    New customer information:
+    """
+vehicle_owner = "Name of the vehicle owner: "
+vehicle_year = "Year of the vehicle: "
+vehicle_make = "Make of the vehicle: "
+vehicle_model = "Model of the vehicle: "
+
+# Select services
+service_menu = """
+    Please choose from the following services:
+    1. Oil change and Tire rotation
+    2. Brake Pads and Front-End Alightment
+    3. Broken Glass Repair
+    4. Dent Removal
+    """
+choose_service = "Choose a service: (1/2/3/4) "
+service_oil_change = "Oil change and Tire rotation"
+service_brake_pads = "Brake Pads and Front-End Alightment"
+service_broken_glass = "Broken Glass Repair"
+service_dent_removal = "Dent Removal"
+tyre_type = "Enter the type of tyre: (std/4WD/truck) "
+window_size_string = "Enter the size of the window: (S/L) "
+dent_size_string = "Enter the size of the dent: (S/L) "
+
+# Labour cost
+service_labour_cost_string = "Enter the cost of labour: "
+
+# Print invoice
+invoice_string = f"""
+    WACTC Automotive Services               INVOICE
+    400 Alysworth Ave
+    Woonsocket, RI 02895
+    
+    {customer_name}
+    {customer_year} {customer_make} {customer_model}
+    
+    Service Type: {service_type}
+    Service Cost: {service_cost} including labour    
+    """
+
+# Another invoice?
+another_invoice_string = "Would you like to create another invoice? (y/n) "
