@@ -23,9 +23,17 @@ def print_english_language_invoice():
     Service Type: {service_type}
     Service Cost: {service_cost:.2f} {currency} including labour""")
 
-# TODO: french translation
 def print_french_language_invoice():
-    pass
+    print(f"""
+    WACTC Automotive Services               FACTURE
+    400 Alysworth Ave
+    Woonsocket, RI 02895
+
+    {customer_name}
+    {customer_year} {customer_make} {customer_model}
+
+    Type de service: {service_type}
+    Coût du service: {service_cost:.2f} {currency} y compris le travail""")
 
 # Choose language
 choosing_a_language = True
@@ -41,8 +49,8 @@ while choosing_a_language:
     else:
         print(lang.choose_language_error)
 
-#TODO test line and language string - remove from final project
-print(lang.language_choice)
+# Test line to confirm language choice works
+# print(lang.language_choice)
 
 # Choose a currancy USD or CAN
 choosing_a_currency = True
@@ -119,7 +127,7 @@ while is_creating_invoices:
                 if dent_size == "s":
                     service_cost += (5.00 * exchange_rate)
                     is_choosing_a_dent_size = False
-                else:
+                elif dent_size == "l":
                     service_cost += (15.00 * exchange_rate)
                     is_choosing_a_dent_size = False
                 else:

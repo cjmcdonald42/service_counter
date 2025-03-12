@@ -1,4 +1,5 @@
 # English language file
+#     Written by: Charles J McDonald
 
 # Choose language
 language_menu = """
@@ -31,8 +32,8 @@ vehicle_model = "Model of the vehicle: "
 # Select services
 service_menu = """
 Please choose from the following services:
-    1. Oil change and Tire rotation
-    2. Brake Pads and Front-End Alightment
+    1. Oil change and Tyre rotation
+    2. Brake Pads and Front-End Alignment
     3. Broken Glass Repair
     4. Dent Removal
 """
