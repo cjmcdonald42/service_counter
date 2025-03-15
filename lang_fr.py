@@ -2,16 +2,16 @@
 #     Traduction par: Charles J McDonald
 #        Assisté par: Google Translate
 
-language_menu = """
+language_menu_string = """
     Please choose a language:
     Choisir une langue:
 
     1. English
     2. le français
     """
-choose_language = "Choisissez une langue: (1/2) "
-choose_language_error = "Veuillez choisir une langue valide."
-language_choice = "Vous avez choisi le français."
+language_choice _string = "Choisissez une langue: (1/2) "
+choose_language_error_string = "Veuillez choisir une langue valide."
+language_choice_string = "Vous avez choisi le français."
 
 # Choisissez une devise USD ou CAN
 currency_menu = """

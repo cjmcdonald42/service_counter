@@ -2,16 +2,16 @@
 #     Written by: Charles J McDonald
 
 # Choose language
-language_menu = """
+language_menu_string = """
 Please choose a language:
 Choisir une langue:
 
 1. English
 2. le français
 """
-choose_language = "Choose a language: (1/2) "
-choose_language_error = "Please choose a valid language."
-language_choice = "You have chosen English."
+language_choice _string = "Choose a language: (1/2) "
+choose_language_error_string = "Please choose a valid language."
+language_choice_string = "You have chosen English."
 
 # Choose a currancy USD or CAN
 currency_menu = """

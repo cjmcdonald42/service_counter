@@ -36,21 +36,21 @@ def print_french_language_invoice():
     Coût du service: {service_cost:.2f} {currency} y compris le travail""")
 
 # Choose language
-choosing_a_language = True
-while choosing_a_language:
-    print(lang.language_menu)
-    language_choice = input(lang.choose_language)
+is_choosing_a_language = True
+while is_choosing_a_language:
+    print(lang.language_menu_string)
+    language_choice = input(lang.language_choice_string)
     if language_choice == "1":
         import lang_en as lang
-        choosing_a_language = False
+        is_choosing_a_language = False
     elif language_choice == "2":
         import lang_fr as lang
-        choosing_a_language = False
+        is_choosing_a_language = False
     else:
-        print(lang.choose_language_error)
+        print(lang.choose_language_error_string)
 
 # Test line to confirm language choice works
-# print(lang.language_choice)
+# print(lang.language_choice_string)
 
 # Choose a currancy USD or CAN
 choosing_a_currency = True
