@@ -11,7 +11,7 @@ Choisir une langue:
 """
 language_choice_string = "Choose a language: (1/2) "
 choose_language_error_string = "Please choose a valid language."
-language_choice_string = "You have chosen English."
+your_language_choice_string = "You have chosen English."
 
 # Choose a currancy USD or CAN
 currency_menu_string = """

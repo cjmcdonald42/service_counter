@@ -23,7 +23,8 @@ def print_english_language_invoice():
     {customer_year} {customer_make} {customer_model}
     
     Service Type: {service_type}
-    Service Cost: {service_cost:.2f} {currency} including labour""")
+    Service Cost: {service_cost:.2f} {currency} including labour
+    """)
 
 def print_french_language_invoice():
     """Prints the french language invoice using global params.
@@ -37,7 +38,8 @@ def print_french_language_invoice():
     {customer_year} {customer_make} {customer_model}
 
     Type de service: {service_type}
-    Coût du service: {service_cost:.2f} {currency} y compris le travail""")
+    Coût du service: {service_cost:.2f} {currency} y compris le travail
+    """)
 
 # Choose language
 is_choosing_a_language = True
@@ -54,7 +56,7 @@ while is_choosing_a_language:
         print(lang.choose_language_error_string)
 
 # Test line to confirm language choice works
-# print(lang.language_choice_string)
+# print(lang.your_language_choice_string)
 
 # Choose a currancy USD or CAN
 is_choosing_a_currency = True
@@ -78,6 +80,7 @@ while is_creating_invoices:
     service_cost = 0.00     # initialize service total cost
 
 # Gather new customer information
+# TODO - Clear the console screen or at least add a blank line before we begin.
     print(lang.vehicle_information_string)
     customer_name = input(lang.vehicle_owner_string)
     customer_year = input(lang.vehicle_year_string)
@@ -143,6 +146,7 @@ while is_creating_invoices:
     service_cost += float(service_labour_cost)
 
     # Print invoice
+    # TODO - Clear the console screen or add a dashed line before we print the invoice.
     if language_choice == "1":
         print_english_language_invoice()
     else:
