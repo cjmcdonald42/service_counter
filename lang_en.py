@@ -14,38 +14,38 @@ choose_language_error_string = "Please choose a valid language."
 language_choice_string = "You have chosen English."
 
 # Choose a currancy USD or CAN
-currency_menu = """
+currency_menu_string = """
 Please choose a currency:
 1. USD
 2. CAN
 """
-choose_currency = "Choose a currency: (1/2) "
-choose_currency_error = "Please choose a valid currency."
+choose_currency_string = "Choose a currency: (1/2) "
+choose_currency_error_string = "Please choose a valid currency."
 
 # Gather new customer information
-vehicle_information = "New customer information:"
-vehicle_owner = "Name of the vehicle owner: "
-vehicle_year = "Year of the vehicle: "
-vehicle_make = "Make of the vehicle: "
-vehicle_model = "Model of the vehicle: "
+vehicle_information_string = "New customer information:"
+vehicle_owner_string = "Name of the vehicle owner: "
+vehicle_year_string = "Year of the vehicle: "
+vehicle_make_string = "Make of the vehicle: "
+vehicle_model_string = "Model of the vehicle: "
 
 # Select services
-service_menu = """
+service_menu_string = """
 Please choose from the following services:
     1. Oil change and Tyre rotation
     2. Brake Pads and Front-End Alignment
     3. Broken Glass Repair
     4. Dent Removal
 """
-choose_service = "Choose a service: (1/2/3/4) "
-service_oil_change = "Oil change and Tire rotation"
+choose_service_string = "Choose a service: (1/2/3/4) "
+service_oil_change_string = "Oil change and Tire rotation"
 service_brake_pads = "Brake Pads and Front-End Alightment"
 service_broken_glass = "Broken Glass Repair"
 service_dent_removal = "Dent Removal"
-tyre_type = "Enter the type of tyre: (std/4WD/truck) "
+service_tyre_type_string = "Enter the type of tyre: (std/4WD/truck) "
 window_size_string = "Enter the size of the window: (S/L) "
 dent_size_string = "Enter the size of the dent: (S/L) "
-tyre_type_error = "Please enter a valid tyre type."
+tyre_type_error_string = "Please enter a valid tyre type."
 glass_size_error = "Please enter a valid glass size."
 dent_size_error = "Please enter a valid dent size."
 

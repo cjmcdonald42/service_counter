@@ -53,20 +53,20 @@ while is_choosing_a_language:
 # print(lang.language_choice_string)
 
 # Choose a currancy USD or CAN
-choosing_a_currency = True
-while choosing_a_currency:
-    print(lang.currency_menu)
-    currency_choice = input(lang.choose_currency)
+is_choosing_a_currency = True
+while is_choosing_a_currency:
+    print(lang.currency_menu_string)
+    currency_choice = input(lang.choose_currency_string)
     if currency_choice == "1":
         currency = "USD"
         exchange_rate = USD_EXCHANGE_RATE
-        choosing_a_currency = False
+        is_choosing_a_currency = False
     elif currency_choice == "2":
         currency = "CAN"
         exchange_rate = CAN_EXCHANGE_RATE
-        choosing_a_currency = False
+        is_choosing_a_currency = False
     else:
-        print(lang.choose_currency_error)
+        print(lang.choose_currency_error_string)
 
 # Initial program setup complete, program loop begins here
 is_creating_invoices = True
@@ -74,24 +74,23 @@ while is_creating_invoices:
     service_cost = 0.00     # initialize service total cost
 
 # Gather new customer information
-    print(lang.vehicle_information)
-    customer_name = input(lang.vehicle_owner)
-    customer_year = input(lang.vehicle_year)
-    customer_make = input(lang.vehicle_make)
-    customer_model = input(lang.vehicle_model)
+    print(lang.vehicle_information_string)
+    customer_name = input(lang.vehicle_owner_string)
+    customer_year = input(lang.vehicle_year_string)
+    customer_make = input(lang.vehicle_make_string)
+    customer_model = input(lang.vehicle_model_string)
 
 # Select services
-
-    choosing_a_service = True
-    while choosing_a_service:
-        print(lang.service_menu)
-        service_choice = input(lang.choose_service)
+    is_choosing_a_service = True
+    while is_choosing_a_service:
+        print(lang.service_menu_string)
+        service_choice = input(lang.choose_service_string)
         if service_choice == "1":
-            service_type = lang.service_oil_change
+            service_type = lang.service_oil_change_string
             service_cost += (79.99 * exchange_rate)
             is_choosing_a_service_tyre_type = True
             while is_choosing_a_service_tyre_type:
-                service_tyre_type = input(lang.tyre_type).lower()
+                service_tyre_type = input(lang.service_tyre_type_string).lower()
                 if service_tyre_type == "std":
                     service_cost += (30.00 * exchange_rate)
                     is_choosing_a_service_tyre_type = False
@@ -99,12 +98,14 @@ while is_creating_invoices:
                     service_cost += (45.00 * exchange_rate)
                     is_choosing_a_service_tyre_type = False
                 else:
-                    print(lang.tyre_type_error)
-            choosing_a_service = False
+                    print(lang.tyre_type_error_string)
+            is_choosing_a_service = False
+
+# TODO: continue updating string names and boolean should be a phrase
         elif service_choice == "2":
             service_type = lang.service_brake_pads
             service_cost += (120.00 * exchange_rate)
-            choosing_a_service = False
+            is_choosing_a_service = False
         elif service_choice == "3":
             service_type = lang.service_broken_glass
             is_choosing_a_glass_size = True
@@ -118,7 +119,7 @@ while is_creating_invoices:
                     is_choosing_a_glass_size = False
                 else:
                     print(lang.glass_size_error)
-            choosing_a_service = False
+            is_choosing_a_service = False
         elif service_choice == "4":
             service_type = lang.service_dent_removal
             is_choosing_a_dent_size = True
@@ -132,7 +133,7 @@ while is_creating_invoices:
                     is_choosing_a_dent_size = False
                 else:
                     print(lang.dent_size_error)
-            choosing_a_service = False
+            is_choosing_a_service = False
     # End of while loop (choosing_a_service)
 
     # Add labour fee
