@@ -146,7 +146,8 @@ while is_creating_invoices:
     service_cost += float(service_labour_cost)
 
     # Print invoice
-    # TODO - Clear the console screen or add a dashed line before we print the invoice.
+    # Add a visual separator before printing the invoice
+    print("-" * 60)
     if language_choice == "1":
         print_english_language_invoice()
     else:
