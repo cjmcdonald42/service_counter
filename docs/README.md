@@ -6,7 +6,7 @@
 Write an invoice for an automotive service writer.
 
 ## Process
-1. Collector the customer information
+1. Collect the customer information
 2. Choose the work to be done
 3. Calculate the cost of the work
 4. Prepare the invoice
