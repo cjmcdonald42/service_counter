@@ -100,14 +100,12 @@ while is_creating_invoices:
                 else:
                     print(lang.tyre_type_error_string)
             is_choosing_a_service = False
-
-# TODO: continue updating string names and boolean should be a phrase
         elif service_choice == "2":
-            service_type = lang.service_brake_pads
+            service_type = lang.service_brake_pads_string
             service_cost += (120.00 * exchange_rate)
             is_choosing_a_service = False
         elif service_choice == "3":
-            service_type = lang.service_broken_glass
+            service_type = lang.service_broken_glass_string
             is_choosing_a_glass_size = True
             while is_choosing_a_glass_size:
                 window_size = input(lang.window_size_string).lower()
@@ -118,10 +116,10 @@ while is_creating_invoices:
                     service_cost += (69.99 * exchange_rate)
                     is_choosing_a_glass_size = False
                 else:
-                    print(lang.glass_size_error)
+                    print(lang.glass_size_error_string)
             is_choosing_a_service = False
         elif service_choice == "4":
-            service_type = lang.service_dent_removal
+            service_type = lang.service_dent_removal_string
             is_choosing_a_dent_size = True
             while is_choosing_a_dent_size:
                 dent_size = input(lang.dent_size_string).lower()
@@ -132,7 +130,7 @@ while is_creating_invoices:
                     service_cost += (15.00 * exchange_rate)
                     is_choosing_a_dent_size = False
                 else:
-                    print(lang.dent_size_error)
+                    print(lang.dent_size_error_string)
             is_choosing_a_service = False
     # End of while loop (choosing_a_service)
 
