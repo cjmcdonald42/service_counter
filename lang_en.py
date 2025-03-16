@@ -13,7 +13,7 @@ language_choice_string = "Choose a language: (1/2) "
 choose_language_error_string = "Please choose a valid language."
 your_language_choice_string = "You have chosen English."
 
-# Choose a currancy USD or CAN
+# Choose a currency USD or CAN
 currency_menu_string = """
 Please choose a currency:
 1. USD
@@ -52,11 +52,25 @@ dent_size_error_string = "Please enter a valid dent size."
 # Labour cost
 service_labour_cost_string = "Enter the cost of labour: "
 
-# Print invoice
-# Invoice functions are embedded in the main code because they include
-#    they include parameters from the main code block.
+# Invoice template and tax labels
+tax_labels = {
+    "USD": "Sales Tax",
+    "CAN": "VAT"
+}
+
+invoice_template = """
+WACTC Automotive Services               INVOICE
+400 Alysworth Ave
+Woonsocket, RI 02895
+
+{customer_name}
+{customer_year} {customer_make} {customer_model}
+
+Service Type: {service_type}
+Subtotal: {subtotal:.2f} {currency} including labour
+{tax_label} ({tax_percentage}%): {tax_amount:.2f} {currency}
+Total Cost: {total_cost:.2f} {currency}
+"""
 
 # Another invoice?
 another_invoice_string = "Would you like to create another invoice? (y/n) "
-
-# End of lang_en.py
