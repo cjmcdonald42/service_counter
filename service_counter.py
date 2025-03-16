@@ -1,8 +1,8 @@
 """
         package: service_counter.py
-         author: Charles J McDonald «cmcdonald@woonsocketschools.com»
+         author: Charles J McDonald <cmcdonald@woonsocketschools.com>
    date written: 2025.03.12
-    description: Prepare an invoice for an automotive service writer.
+    description: Prepare an invoice for an automotive service writer with tax calculation.
 """
 
 # Default language is English
@@ -10,38 +10,10 @@ import lang_en as lang
 
 USD_EXCHANGE_RATE = 1.00
 CAN_EXCHANGE_RATE = 1.44
+USD_SALES_TAX_RATE = 0.07  # Rhode Island sales tax (7%)
+CAN_VAT_RATE = 0.13        # Example VAT for Ontario, Canada (13%)
 
-def print_english_language_invoice():
-    """Prints the english language invoice using global params.
-    """
-    print(f"""
-    WACTC Automotive Services               INVOICE
-    400 Alysworth Ave
-    Woonsocket, RI 02895
-    
-    {customer_name}
-    {customer_year} {customer_make} {customer_model}
-    
-    Service Type: {service_type}
-    Service Cost: {service_cost:.2f} {currency} including labour
-    """)
-
-def print_french_language_invoice():
-    """Prints the french language invoice using global params.
-    """
-    print(f"""
-    WACTC Automotive Services               FACTURE
-    400 Alysworth Ave
-    Woonsocket, RI 02895
-
-    {customer_name}
-    {customer_year} {customer_make} {customer_model}
-
-    Type de service: {service_type}
-    Coût du service: {service_cost:.2f} {currency} y compris le travail
-    """)
-
-# Choose language
+# Choose language (one-time selection)
 is_choosing_a_language = True
 while is_choosing_a_language:
     print(lang.language_menu_string)
@@ -55,39 +27,35 @@ while is_choosing_a_language:
     else:
         print(lang.choose_language_error_string)
 
-# Test line to confirm language choice works
-# print(lang.your_language_choice_string)
-
-# Choose a currency USD or CAN
-is_choosing_a_currency = True
-while is_choosing_a_currency:
-    print(lang.currency_menu_string)
-    currency_choice = input(lang.choose_currency_string)
-    if currency_choice == "1":
-        currency = "USD"
-        exchange_rate = USD_EXCHANGE_RATE
-        is_choosing_a_currency = False
-    elif currency_choice == "2":
-        currency = "CAN"
-        exchange_rate = CAN_EXCHANGE_RATE
-        is_choosing_a_currency = False
-    else:
-        print(lang.choose_currency_error_string)
-
-# Initial program setup complete, program loop begins here
+# Main invoice creation loop
 is_creating_invoices = True
 while is_creating_invoices:
-    service_cost = 0.00     # initialize service total cost
+    # Choose a currency USD or CAN (per invoice)
+    is_choosing_a_currency = True
+    while is_choosing_a_currency:
+        print(lang.currency_menu_string)
+        currency_choice = input(lang.choose_currency_string)
+        if currency_choice == "1":
+            currency = "USD"
+            exchange_rate = USD_EXCHANGE_RATE
+            is_choosing_a_currency = False
+        elif currency_choice == "2":
+            currency = "CAN"
+            exchange_rate = CAN_EXCHANGE_RATE
+            is_choosing_a_currency = False
+        else:
+            print(lang.choose_currency_error_string)
 
-# Gather new customer information
-# TODO - Clear the console screen or at least add a blank line before we begin.
-    print(lang.vehicle_information_string)
+    service_cost = 0.00  # Initialize service total cost
+
+    # Gather new customer information
+    print("\n" + lang.vehicle_information_string)
     customer_name = input(lang.vehicle_owner_string)
     customer_year = input(lang.vehicle_year_string)
     customer_make = input(lang.vehicle_make_string)
     customer_model = input(lang.vehicle_model_string)
 
-# Select services
+    # Select services
     is_choosing_a_service = True
     while is_choosing_a_service:
         print(lang.service_menu_string)
@@ -139,21 +107,37 @@ while is_creating_invoices:
                 else:
                     print(lang.dent_size_error_string)
             is_choosing_a_service = False
-    # End of while loop (choosing_a_service)
 
-    # Add labour fee
-    service_labour_cost = input(lang.service_labour_cost_string)
-    service_cost += float(service_labour_cost)
+    # Add labour fee (assumed to be in the chosen currency)
+    service_labour_cost = float(input(lang.service_labour_cost_string))
+    service_cost += service_labour_cost
 
-    # Print invoice
-    # TODO - Clear the console screen or add a dashed line before we print the invoice.
-    if language_choice == "1":
-        print_english_language_invoice()
-    else:
-        print_french_language_invoice()
+    # Calculate tax and total
+    subtotal = service_cost
+    tax_rate = USD_SALES_TAX_RATE if currency == "USD" else CAN_VAT_RATE
+    tax_percentage = int(tax_rate * 100)
+    tax_amount = subtotal * tax_rate
+    total_cost = subtotal + tax_amount
+    tax_label = lang.tax_labels[currency]
+
+    # Format and print the invoice
+    invoice = lang.invoice_template.format(
+        customer_name=customer_name,
+        customer_year=customer_year,
+        customer_make=customer_make,
+        customer_model=customer_model,
+        service_type=service_type,
+        subtotal=subtotal,
+        currency=currency,
+        tax_label=tax_label,
+        tax_percentage=tax_percentage,
+        tax_amount=tax_amount,
+        total_cost=total_cost
+    )
+    print("\n" + "-"*50)
+    print(invoice)
 
     # Another invoice?
     another_invoice = input(lang.another_invoice_string).lower()
     if another_invoice != "y":
         is_creating_invoices = False
-# End of while loop (is_creating_invoices)

@@ -52,11 +52,25 @@ dent_size_error_string = "Veuillez saisir une taille de bosse valide."
 # Coût de la main-d'œuvre
 service_labour_cost_string = "Entrez le coût de la main-d'œuvre: "
 
-# Imprimer la facture
-# Les fonctions de facturation sont intégrées au code principal car elles incluent des
-# paramètres du bloc de code principal
+# Invoice template and tax labels
+tax_labels = {
+    "USD": "Taxe de vente",
+    "CAN": "TVA"
+}
+
+invoice_template = """
+WACTC Automotive Services               FACTURE
+400 Alysworth Ave
+Woonsocket, RI 02895
+
+{customer_name}
+{customer_year} {customer_make} {customer_model}
+
+Type de service: {service_type}
+Sous-total: {subtotal:.2f} {currency} y compris le travail
+{tax_label} ({tax_percentage}%): {tax_amount:.2f} {currency}
+Coût total: {total_cost:.2f} {currency}
+"""
 
 # Une autre facture?
 another_invoice_string = "Souhaitez-vous créer une autre facture? (y/n) "
-
-# Fin de lang_fr.py
