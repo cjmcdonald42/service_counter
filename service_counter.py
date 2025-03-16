@@ -12,6 +12,8 @@ USD_EXCHANGE_RATE = 1.00
 CAN_EXCHANGE_RATE = 1.44
 
 def print_english_language_invoice():
+    """Prints the english language invoice using global params.
+    """
     print(f"""
     WACTC Automotive Services               INVOICE
     400 Alysworth Ave
@@ -24,6 +26,8 @@ def print_english_language_invoice():
     Service Cost: {service_cost:.2f} {currency} including labour""")
 
 def print_french_language_invoice():
+    """Prints the french language invoice using global params.
+    """
     print(f"""
     WACTC Automotive Services               FACTURE
     400 Alysworth Ave

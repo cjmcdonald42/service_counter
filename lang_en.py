@@ -9,7 +9,7 @@ Choisir une langue:
 1. English
 2. le français
 """
-language_choice _string = "Choose a language: (1/2) "
+language_choice_string = "Choose a language: (1/2) "
 choose_language_error_string = "Please choose a valid language."
 language_choice_string = "You have chosen English."
 
