@@ -15,7 +15,7 @@ Original job specifications can be found in our [Google Classroom](https://class
 assignment or on our [Google Docs page](https://docs.google.com/document/d/1fuRUuIbQBzVM2e12v-EfmxYNYKW67r6EZtr1A9e8i8U/edit?usp=sharing)
 
 ## Language Support
-This project supports USD and CAN (canadian dollars).
+This project supports USD and CAN (canadian dollars). \
 Current language support includes both English (by default) and French language.
 
 ### This work © 2025 by Charles J McDonald is licensed under CC BY-NC-SA 4.0
