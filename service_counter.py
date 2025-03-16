@@ -58,7 +58,7 @@ while is_choosing_a_language:
 # Test line to confirm language choice works
 # print(lang.your_language_choice_string)
 
-# Choose a currancy USD or CAN
+# Choose a currency USD or CAN
 is_choosing_a_currency = True
 while is_choosing_a_currency:
     print(lang.currency_menu_string)
